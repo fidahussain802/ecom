@@ -8,7 +8,7 @@ function Header() {
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <header className="bg-blue-500 text-white p-4">
+    <header className="sticky top-0 z-50 bg-blue-500 text-white p-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="text-2xl font-bold">E-Commerce</Link>
         <Link to="/cart" className="flex items-center">

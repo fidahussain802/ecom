@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../store';
 import { removeItem, updateQuantity, clearCart } from '../store/cart';
 import { CartItem } from '../types';
+import { Link } from 'react-router-dom';
 
 function AddCart() {
   const { items } = useSelector((state: RootState) => state.cart);
@@ -21,9 +22,24 @@ function AddCart() {
 
   return (
     <div className="container mx-auto p-4 max-w-4xl">
-      <h2 className="text-2xl font-bold mb-6">Your Cart</h2>
+      <h2 className="text-2xl font-bold ">Your Cart</h2>
       {items.length === 0 ? (
-        <p className="text-gray-500">Your cart is empty</p>
+        <div className="flex flex-col items-center justify-center text-center py-10 text-gray-500">
+        <img
+          src="./img/cart.png" 
+          alt="Empty cart"
+          className="w-32 h-32 mb-6"
+        />
+        <h3 className="text-lg font-semibold mb-2">Your cart is empty</h3>
+        <p className="mb-4">Looks like you haven't added anything to your cart yet.</p>
+        <Link
+          to="/"
+          className="inline-block px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+        >
+          Start Shopping
+        </Link>
+      </div>
+      
       ) : (
         <>
           <div className="space-y-4">
